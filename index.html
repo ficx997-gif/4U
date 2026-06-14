@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Everything ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe6e6 0%, #ffb3ba 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(214, 48, 49, 0.15);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.4s ease;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #d63031;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            position: relative;
+            min-height: 50px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #yesBtn { background-color: #ff7675; color: white; }
+        #noBtn { background-color: #b2bec3; color: white; }
+        
+        img.main-gif {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border-radius: 15px;
+        }
+        
+        #success-content {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.8s ease forwards;
+            width: 100%;
+        }
+        
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-title {
+            font-size: 0.9rem;
+            color: #ff7675;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 10px;
+            padding-left: 5px;
+        }
+
+        .poem-section {
+            margin-top: 22px;
+            padding-top: 15px;
+            border-top: 1px dashed #ffb3ba;
+            font-style: italic;
+            color: #4a4a4a;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .poem-line { margin: 6px 0; display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <img id="gifDisplay" class="main-gif" src="1000074886.gif" alt="Cute Cat" onerror="fixGifExtension(this)">
+        
+        <h1 id="questionText">Can my beautiful future wife forgive me and smile again? 🥺❤️</h1>
+        
+        <div class="buttons" id="btnContainer">
+            <button id="yesBtn" onclick="handleYes()">YES</button>
+            <button id="noBtn" onmouseover="handleNo()" onclick="handleNo()">NO</button>
+        </div>
+
+        <div id="success-content">
+            <div class="video-title">Our Song 1 ✨</div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lw10OHPaRVw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-title">Our Song 2 🎵</div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/euCqAq6BRa4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="poem-section">
+                <span class="poem-line">If you ever lose hope, look at the sky. ✨</span>
+                <span class="poem-line">The moon still shines, even after the darkest nights. 🌙</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ෆෝන් වලින් අප්ලෝඩ් වෙද්දී .gif කෑල්ල කැපිටල් (.GIF) වුණොත් auto හදාගන්න කෝඩ් එකක්
+        function fixGifExtension(imgElement) {
+            if (imgElement.src.endsWith('.gif')) {
+                imgElement.src = imgElement.src.replace('.gif', '.GIF');
+            } else if (imgElement.src.endsWith('.GIF')) {
+                imgElement.src = imgElement.src.replace('.GIF', '.gif');
+            }
+        }
+
+        // NO බටන් එක දිවීමේ ෆන්ක්ෂන් එක
+        function handleNo() {
+            const noBtn = document.getElementById('noBtn');
+            const gif = document.getElementById('gifDisplay');
+            
+            // පූසා 2: අඬන ජිෆ් එක
+            gif.src = "1000074885.gif";
+            gif.setAttribute('onerror', 'fixGifExtension(this)');
+            
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 40) + 20;
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40) + 20;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        // YES ක්ලික් කරාම වෙන දේ
+        function handleYes() {
+            const gif = document.getElementById('gifDisplay');
+            const question = document.getElementById('questionText');
+            const btnContainer = document.getElementById('btnContainer');
+            const successContent = document.getElementById('success-content');
+            const mainCard = document.getElementById('mainCard');
+
+            // පූසා 3: බදාගන්නා ජිෆ් එක
+            gif.src = "1000074889.gif";
+            gif.setAttribute('onerror', 'fixGifExtension(this)');
+            
+            question.innerText = "I knew it! I love you so much my baby! 💍❤️";
+            question.style.color = "#e84393";
+            
+            btnContainer.style.display = 'none';
+            successContent.style.display = 'block';
+            mainCard.style.maxWidth = '440px';
+        }
+    </script>
+</body>
+</html>
